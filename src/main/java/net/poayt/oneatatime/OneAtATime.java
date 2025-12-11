@@ -12,10 +12,7 @@ public class OneAtATime implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		int blocksBroken = 0;
-
-		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity)) -> {
-			blocksBroken++;
+		
 		}
 	}
 }
