@@ -1,6 +1,7 @@
 package net.poayt.oneatatime;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +12,10 @@ public class OneAtATime implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		int blocksBroken = 0;
 
-		LOGGER.info("Hello Fabric world!");
+		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity)) -> {
+			blocksBroken++;
+		}
 	}
 }
